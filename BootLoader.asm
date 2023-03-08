@@ -3,8 +3,14 @@
 
 SECTION .text       ; text 섹션(세그먼트)을 정의
 
+jmp 0x07C0:START    ; cs 레지스터에 0x07C0을 복사하면서 START Label로 이동
+
+START:
+    mov ax, 0x07C0  ; BootLoader의 시작 Addr(0x07C0)을 세그먼트 레지스터 값으로 변환
+    mov ds, ax      ; ds 레지스터에 설정
+
 mov ax, 0xB800      ; ax 레지스터에 0xB800 복사
-mov ds, ax          ; ds(세그먼트 레지스터)에 ax의 값 복사
+mov ds, ax          ; ds 레지스터에 ax의 값 복사
 
 mov byte [ 0x00 ], 'M'    ; ds segment:오프셋 0xB800:0x0000에 "M"을 복사
 mov byte [ 0x01 ], 0x4A   ; ds segment:오프셋 0xB800:0x0001에 0x4A(빨간 배경에 녹색 글자)
