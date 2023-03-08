@@ -5,7 +5,7 @@ BootLoader:
 	@echo ============== Build Boot Loader ===============
 	@echo
 
-	make -C 00.BootLoader/Source
+	make -C 00.BootLoader
  	
 	@echo
 	@echo =============== Build Complete ===============
@@ -17,12 +17,12 @@ Disk.img:00.BootLoader/BootLoader.bin
 	@echo =========== Disk Image Build Start ===========
 	@echo
 	
-	cp 00.BootLoader/Source/BootLoader.bin Disk.img
+	cp 00.BootLoader/BootLoader.bin Disk.img
 	
 	@echo
 	@echo ============= All Build Complete =============
 	@echo
 
 clean:
-	make -C 00.BootLoader/Source clean
+	make -C 00.BootLoader clean
 	rm -f Disk.img
