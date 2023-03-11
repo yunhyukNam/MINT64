@@ -203,7 +203,7 @@ PRINTMESSAGE:
     mov si, word [ bp + 8 ]     ; 파라미터 3(출력할 문자열의 어드레스)
 
 .MESSAGELOOP:
-    mov cl, byte [ si + MESSAGE1 ]  ; MESSAGE1의 Addr에서 si 레지스터 값만큼
+    mov cl, byte [ si ]  ; MESSAGE1의 Addr에서 si 레지스터 값만큼
                                     ; 더한 위치의 문자를 cl 레지스터에 복사
                                     ; cl 레지스터는 cx 레지스터의 하위 1byte를 의미
                                     ; 문자열은 1byte면 충분하므로 cx 레지스터의 하위 1byte만 사용
