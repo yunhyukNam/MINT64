@@ -226,7 +226,7 @@ PRINTMESSAGE:
     pop ax      ; Stack 구조는 가장 마지막에 들어간 데이터가 가장 먼저 나오게 되는
     pop di      ; 자료구조(LI-FO)이므로 push의 역순으로
     pop si      ; pop 해야 함
-    pop es      ;
+    pop es      
     pop bp      ; basepointer 복원
 
     ret         ; 함수 호출 후 다음 코드의 위치로 복귀
