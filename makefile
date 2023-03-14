@@ -1,4 +1,4 @@
-all: BootLoader Kernel32 Disk.img
+all: BootLoader Kernel32 Disk.img Utility
 
 BootLoader:
 	@echo 
@@ -27,14 +27,25 @@ Disk.img: 00.BootLoader/BootLoader.bin 01.Kernel32/Kernel32.bin
 	@echo =========== Disk Image Build Start ===========
 	@echo 
 
-	cat $^ > Disk.img
+	./ImageMaker.exe $^
 
 	@echo 
 	@echo ============= All Build Complete =============
 	@echo 
-	
-# 소스 파일을 제외한 나머지 파일 정리	
+
+Utility:
+	@echo
+	@echo =========== Utility Build Start ===========
+	@echo
+
+	make -C 04.Utility
+
+	@echo
+	@echo =========== Utility Build Complete ===========
+	@echo
+
 clean:
 	make -C 00.BootLoader clean
 	make -C 01.Kernel32 clean
+	make -C 04.Utility clean
 	rm -f Disk.img	
