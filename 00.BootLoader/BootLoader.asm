@@ -84,7 +84,7 @@ RESETDISK:                          ; 디스크를 리셋하는 코드의 시작
     ; 디스크에서 섹터를 읽음
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     ; 디스크의 내용을 메모리로 복사할 어드레스(ES:BX)를 0x1000으로 설정
-    mov si, 0x1000          ; OS 이미지를 복사 할 Addr(0x1000)를 si에 복사
+    mov si, 0x1000          ; OS 이미지를 복사 할 Addr0x1000()를 si에 복사
     mov es, si              ; es 레지스터에 si에 저장된 Addr 복사
     mov bx, 0x0000          ; bx 레지스터에 0x0000을 설정하여 복사
 
@@ -119,7 +119,7 @@ READDATA:                       ; 디스크를 읽는 코드 시작
     mov al, byte [ SECTORNUMBER ]       ; 섹터 번호를 al 레지스터에 설정
     add al, 0x01                        ; 섹터 번호 1 증가
     mov byte [ SECTORNUMBER ], al       ; 1 증가된 섹터 번호를 재설정
-    cmp al, 19                          ; 증가시킨 섹터 번호를 19와 비교
+    cmp al, 37                          ; 증가시킨 섹터 번호를 19와 비교
 
     jl READDATA                         ; 섹터 번호가 19 미만이면 READDATA로 JMP
 
