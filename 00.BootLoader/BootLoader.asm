@@ -119,7 +119,7 @@ READDATA:                       ; 디스크를 읽는 코드 시작
     mov al, byte [ SECTORNUMBER ]       ; 섹터 번호를 al 레지스터에 설정
     add al, 0x01                        ; 섹터 번호 1 증가
     mov byte [ SECTORNUMBER ], al       ; 1 증가된 섹터 번호를 재설정
-    cmp al, 37                          ; 증가시킨 섹터 번호를 19와 비교
+    cmp al, 37                          ; 증가시킨 섹터 번호를 37과 비교
 
     jl READDATA                         ; 섹터 번호가 19 미만이면 READDATA로 JMP
 
