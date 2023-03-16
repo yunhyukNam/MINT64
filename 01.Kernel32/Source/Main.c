@@ -1,3 +1,5 @@
+#define  _CRT_SECURE_NO_WARNINGS
+
 #include "Types.h"
 #include "Page.h"
 

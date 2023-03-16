@@ -15,9 +15,15 @@ $(OBJECTDIRECTORY)/EntryPoint.bin: $(SOURCEDIRECTORY)/EntryPoint.s
 	$(NASM32) -o $@ $<
 
 dep:
+	@echo
 	@echo === Make Dependency File ===
+	@echo
+
 	make -C $(OBJECTDIRECTORY) -f ../Makefile InternalDependency
+	
+	@echo
 	@echo === Dependency Search Complete ===
+	@echo
 
 ExecuteInternalBuild: dep
 	make -C $(OBJECTDIRECTORY) -f ../Makefile Kernel32.elf

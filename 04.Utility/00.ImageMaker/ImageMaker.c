@@ -1,6 +1,9 @@
+#define  _CRT_SECURE_NO_WARNINGS
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <errno.h>
@@ -78,7 +81,7 @@ int AdjustInSectorSize(int iFd, int iSourceSize){
     if(iAdjustSizeToSector != 0){
         iAdjustSizeToSector = 512 - iAdjustSizeToSector;
 
-        printf("[INFO] File size [%lu] and fill [%u] byte\n", iSourceSize, iAdjustSizeToSector);
+        printf("[INFO] File size [%u] and fill [%u] byte\n", iSourceSize, iAdjustSizeToSector);
 
         for(i=0; i<iAdjustSizeToSector; i++){
             write(iFd, &cCh, 1);
@@ -100,7 +103,7 @@ void WriteKernelInformation(int iTargetFd, int iKernelSectorCount){
     lPosition = lseek(iTargetFd, (off_t)5, SEEK_SET);
     
     if(lPosition == -1){
-        fprintf( stderr, "lseek fail. Return value = %d, errno = %d, %d\n", lPosition, errno, SEEK_SET);
+        fprintf( stderr, "lseek fail. Return value = %ld, errno = %d, %d\n", lPosition, errno, SEEK_SET);
         exit(-1);
     }
 
