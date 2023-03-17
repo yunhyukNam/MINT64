@@ -32,7 +32,7 @@ clean:
 	rm -f *.bin
 	rm -f $(OBJECTDIRECTORY)/*.*
 
-ENTRYPOINTSOURCEFILE = ../$(SOURCEDIRECTORY)/EntryPoint.s
+ENTRYPOINTSOURCEFILE = $(wildcard ../$(SOURCEDIRECTORY)/EntryPoint.s)
 ENTRYPOINTOBJECTFILE = EntryPoint.o
 
 CSOURCEFILES = $(wildcard ../$(SOURCEDIRECTORY)/*.c)
@@ -53,7 +53,7 @@ InternalDependency:
 	$(GCC64) -MM $(CSOURCEFILES) > Dependency.dep
 
 Kernel64.elf: $(ENTRYPOINTOBJECTFILE) $(COBJECTFILES) $(ASSEMBLYOBJECTFILES)
-	$(LD64) -o $@ $<
+	$(LD64) -o $@ $^
 
 ifeq (Dependency.dep, $(wildcard Dependency.dep))
 include Dependency.dep
