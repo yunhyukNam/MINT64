@@ -28,7 +28,7 @@ typedef struct kPageTableEntryStruct{
 
 #pragma pack( pop )
 
-void kInitializePageTables(void);
+void kInitializePageTables( void );
 void kSetPageEntryData( PTENTRY* pstEntry, DWORD dwUpperBaseAddress, 
                         DWORD dwLowerBaseAddress, DWORD dwLowerFlags, 
                         DWORD dwUpperFlags);
