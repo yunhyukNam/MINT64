@@ -7,7 +7,7 @@ BOOL kInitializeKernel64Area(void);
 BOOL kIsMemoryEnough(void);
 void kCopyKernel64ImageTo2MByte(void);
 
-void main(void){
+void Main(void){
     DWORD i;
     DWORD dwEAX, dwEBX, dwECX, dwEDX;
     
@@ -15,7 +15,7 @@ void main(void){
 
     kPrintString( 0, 3, "Protected Mode C Language Kernel Start......[Pass]" );
 
-    kPrintString( 0, 4, "Minimum Memory Size Check...................[    ]");
+    //kPrintString( 0, 4, "Minimum Memory Size Check...................[    ]");
     if(kIsMemoryEnough() == FALSE){
         kPrintString( 45, 4, "Fail");
         kPrintString( 0, 5, "Not Enough Memory! MINT64 OS Requires Over \"64MByte Memory!!\"");
@@ -102,7 +102,7 @@ BOOL kIsMemoryEnough(void){
 
     pdwCurrentAddress = (DWORD*) 0x100000;
 
-    while((DWORD)pdwCurrentAddress < 0x400000){
+    while((DWORD)pdwCurrentAddress < 0x4000000){
         *pdwCurrentAddress = 0x12345678;
 
         if(*pdwCurrentAddress != 0x12345678){

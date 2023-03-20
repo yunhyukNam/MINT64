@@ -2,7 +2,7 @@
 
 SECTION .text
 
-extern main
+extern Main
 
 START:
     mov ax, 0x10
@@ -15,6 +15,6 @@ START:
     mov rsp, 0x6FFFF8
     mov rbp, 0x6FFFF8
 
-    call main
+    call Main
 
     jmp $
