@@ -24,7 +24,7 @@ START:
     cli
     lgdt [ GDTR ]
 
-    mov eax, 0x4000003b
+    mov eax, 0x4000003B
     mov cr0, eax
 
     jmp dword 0x18: ( PROTECTEDMODE - $$ + 0x10000 )
@@ -143,8 +143,8 @@ GDT:
         db 0xcf
         db 0x00
 
-    GDTEND:
+GDTEND:
     
-    SWITCHMODESUCCESSMESSAGE: db 'Switch To Protected Mode Success!', 0
+SWITCHMODESUCCESSMESSAGE: db 'Switch To Protected Mode Success!', 0
 
 times 512 - ( $ - $$ ) db 0x00

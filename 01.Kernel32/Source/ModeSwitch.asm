@@ -1,6 +1,6 @@
 [BITS 32]
 
-global kReadCPUID, kSwitchAndExcute64bitKernel
+global kReadCPUID, kSwitchAndExecute64bitKernel
 
 SECTION .text
 
@@ -39,7 +39,7 @@ kReadCPUID:
 
     ret
 
-kSwitchAndExcute64bitKernel:
+kSwitchAndExecute64bitKernel:
     mov eax, cr4
     or eax, 0x20   
     mov cr4, eax
