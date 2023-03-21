@@ -54,6 +54,8 @@ kSwitchAndExecute64bitKernel:
 
     wrmsr
 
+    ; 페이징
+
     mov eax, cr0
     or eax, 0xE0000000
     xor eax, 0x60000000

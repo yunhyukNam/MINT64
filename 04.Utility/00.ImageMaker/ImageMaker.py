@@ -8,8 +8,8 @@ def align_512(data):
         data = data + b"\x00" * (512 - (len(data)%512))
     return data
 
-if len(sys.argv) < 3:
-    print("[ERROR] ImageMaker BootLoader.bin Kernel32.bin")
+if len(sys.argv) < 4:
+    print("[ERROR] ImageMaker BootLoader.bin Kernel32.bin Kernel64.bin")
     sys.exit(-1)
 
 disk_fd = open("Disk.img", "wb")

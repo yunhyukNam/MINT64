@@ -15,7 +15,7 @@ void Main(void){
 
     kPrintString( 0, 3, "Protected Mode C Language Kernel Start......[Pass]" );
 
-    //kPrintString( 0, 4, "Minimum Memory Size Check...................[    ]");
+    kPrintString( 0, 4, "Minimum Memory Size Check...................[    ]");
     if(kIsMemoryEnough() == FALSE){
         kPrintString( 45, 4, "Fail");
         kPrintString( 0, 5, "Not Enough Memory! MINT64 OS Requires Over \"64MByte Memory!!\"");
@@ -48,7 +48,7 @@ void Main(void){
     kPrintString( 45, 7, vcVendorString);
 
     kReadCPUID(0x80000001, &dwEAX, &dwEBX, &dwECX, &dwEDX);
-    kPrintString( 0, 8, "64bit Mode Support Check...................[    ]");
+    kPrintString( 0, 8, "64bit Mode Support Check....................[    ]");
 
     if(dwEDX & (1 << 29)){
         kPrintString( 45, 8, "Pass");
@@ -60,11 +60,12 @@ void Main(void){
         while(1);
     }
 
-    kPrintString( 0, 9, "Copy IA-32e Kernel To 2M Address...........[    ]");
+    kPrintString( 0, 9, "Copy IA-32e Kernel To 2M Address............[    ]");
     kCopyKernel64ImageTo2MByte();
     kPrintString( 45, 9, "Pass");
 
     kPrintString( 0, 9, "Switch To IA-32e Mode");
+
     kSwitchAndExecute64bitKernel();
 
     while(1);

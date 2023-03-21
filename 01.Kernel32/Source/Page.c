@@ -11,7 +11,7 @@ void kInitializePageTables( void ){
     pstPML4TEntry = (PML4TENTRY*) 0x100000;
     kSetPageEntryData(&(pstPML4TEntry[0]), 0x00, 0x101000, PAGE_FLAGS_DEFAULT, 0);
 
-    for(i=0;i<PAGE_MAXENTRYCOUNT;i++){
+    for(i = 1;i < PAGE_MAXENTRYCOUNT;i++){
         kSetPageEntryData(&(pstPML4TEntry[i]), 0, 0, 0, 0);
     }
 
