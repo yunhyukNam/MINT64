@@ -22,7 +22,7 @@ MINT 64 OS 개발 (2023.03.03 ~ 진행 중)
 > ## Chapter 9 Clear
     2023.03.16 ~ 2023.03.16
 
-> ## Chapter 10 
+> ## Chapter 10 Clear
     2023.03.16 ~ 2023.03.21
     
     - Chapter 10 Error
