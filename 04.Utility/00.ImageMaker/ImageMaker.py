@@ -28,6 +28,9 @@ Kernel32_Sector_Count = int(len(Kernel32_data)/512)
 Kernel64_Sector_Count = int(len(Kernel64_data)/512)
 total_sector_count = Kernel32_Sector_Count + Kernel64_Sector_Count
 
+print(Kernel32_Sector_Count)
+print(Kernel64_Sector_Count)
+print(total_sector_count)
 
 #change TOTALSECTORCOUNT
 Disk_data = Disk_data[:5] + struct.pack("<H", total_sector_count) + struct.pack("<H", Kernel32_Sector_Count) + Disk_data[9:]
